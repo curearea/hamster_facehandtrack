@@ -1,4 +1,4 @@
-# Face and Hand Tracking Hamster Memes
+# Hamster Matcher - Face and Hand Tracking Recognition Matching with Hamster Memes
 A python project that utilizes facial tracking movements and hand tracking to detect facial expressions and hand gestures. 
 Program matches the movements to a hamster meme with correlation. 
 
