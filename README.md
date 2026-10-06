@@ -25,4 +25,4 @@ Program matches the movements to a hamster meme with correlation.
 
 # Installation
 In terminal:
-python3 -m pip install opencv-python mediapipe numpy
+python3 -m pip install opencv-python mediapipe
