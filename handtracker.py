@@ -1,3 +1,4 @@
+#import libraries
 import cv2
 import mediapipe as mp
 import math
@@ -42,7 +43,7 @@ def detect_gesture(fingers_up):
         fingers_up['pinky']
     )
 
-    #return gesture based on finger state
+    #return gesture based on finger state (finger up = True)
     if pattern == (True, True, True, True, True):
         return "palm"
     elif pattern == (True, False, False, False, False):
@@ -71,6 +72,7 @@ def hand_tracking(frame):
                     frame,
                     hand_landmarks,
                     None,
+                    #color and thickness of dots and lines
                     mp_draw.DrawingSpec(color=(240, 207, 137), thickness=3, circle_radius=3),
                     mp_draw.DrawingSpec(color=(240, 207, 137), thickness=3)
                 )
