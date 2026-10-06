@@ -13,7 +13,7 @@ hands = mp_hands.Hands(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5,
 )
-
+#function for getting finger gestures with mp landmarks
 def finger_gesture(landmarks, frame_shape):
     h, w, _ = frame_shape
 
@@ -30,6 +30,7 @@ def finger_gesture(landmarks, frame_shape):
 
     return fingers_up
 
+#function for detecting gestures based on the figer gesture function
 def detect_gesture(fingers_up):
 
     #make list for each finger state
@@ -49,7 +50,9 @@ def detect_gesture(fingers_up):
     else:
         return "nothing"
 
+#base for the hand tracking system
 def hand_tracking(frame):
+        
         #frame height and width
         h, w, _ = frame.shape
 
@@ -57,9 +60,11 @@ def hand_tracking(frame):
         rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         results = hands.process(rgb)
 
+        #initializes left AND right hand gestures to nothing
         left_gesture = "nothing"
         right_gesture = "nothing"
 
+        #shows dots on top of hands
         if results.multi_hand_landmarks:
             for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
                 mp_draw.draw_landmarks(
@@ -75,10 +80,12 @@ def hand_tracking(frame):
 
             wrist_x = hand_landmarks.landmark[0].x
 
+            #when wrist is left side of frame, left hand
             if wrist_x < 0.5:  
                 left_gesture = gesture
+            #when wrist is right side of frame, right hand
             if wrist_x >= 0.5:
                 right_gesture = gesture
 
-
+        #returns left and right hand gestures
         return left_gesture, right_gesture

@@ -15,7 +15,7 @@ Author: curearea
 Version 1.0
 
 '''
-
+#import libraries
 import cv2
 import mediapipe as mp
 import math
@@ -68,6 +68,7 @@ def main():
     thumbs_up_meme = cv2.resize(thumbs_up_meme, (min_dim, min_dim))
     thumbs_up_meme_right = cv2.resize(thumbs_up_meme_right, (min_dim, min_dim))
 
+    #while camera is running
     while True:
 
         ret, frame = cap.read()
@@ -106,7 +107,7 @@ def main():
                 avg_corner_y = ((left.y + right.y) / 2) * h
                 nose_y = nose.y * h
 
-                #landmarks on face
+                #drawing box on face
                 for landmark in face_landmarks.landmark:
                     
                     #box around face

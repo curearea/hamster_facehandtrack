@@ -25,7 +25,7 @@ def get_mouth_state(landmarks,frame_shape):
     #mouth open detection using top and bottom lip landmarks
     mouth_open = abs(float(bottom_lip.y) - float(top_lip.y)) * h
 
-    #smile ratio for smiling detection, open, and neutral detection
+    #returns smiling, open, and neutral with detection
     if smile_ratio < 1.14:
         return "SMILING"
     elif mouth_open > 15:
@@ -48,6 +48,8 @@ def get_head_tilt(landmarks, frame_shape):
 
     #angle of tilt in degrees
     angle = math.degrees(math.atan2(dy, dx))
+
+    #returns angle of head tilt 
     return angle
 
 #define head turn function
@@ -65,7 +67,7 @@ def get_head_turn(landmarks):
     #turn ratio calculation
     ratio = left_dist / right_dist
 
-    #turn ratio for left, right, and center detection
+    #returns left right center with ratio
     if ratio < 0.3:
         return "LEFT"
     elif ratio > 9.0:
@@ -90,7 +92,7 @@ def get_head_nod(landmarks):
     face_height = chin_y - forehead_y
     nose_ratio = (nose_y - forehead_y) / face_height
 
-    #nose ratio for nodding detection
+    #returns up down and center based on ratio
     if nose_ratio < 0.50:
         return "UP"
     elif nose_ratio > 0.60:
