@@ -1,8 +1,8 @@
-# Hamster Matcher - Face and Hand Tracking Recognition Matching with Hamster Memes
+# 🐹 Hamster Matcher - Face and Hand Tracking Recognition Matching with Hamster Memes
 A python project that utilizes facial tracking movements and hand tracking to detect facial expressions and hand gestures. 
 Program matches the movements to a hamster meme with correlation. 
 
-# Features
+# 💥 Features
 - Open webcam feed with hamster meme
 - Detects face and hand movements with mediapipe
 - Tracks these type of facial movements:
@@ -18,11 +18,11 @@ Program matches the movements to a hamster meme with correlation.
 - Displays a matching hamster meme
 - Press 'q' to close
 
-# Technology used
+# 💻 Technology used
 - Python
 - OpenCV
 - MediaPipe
 
-# Installation
+# 👾 Installation
 In terminal:
 python3 -m pip install opencv-python mediapipe
